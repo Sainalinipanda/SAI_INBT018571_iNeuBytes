@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CarePlus Clinic</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ===================== HEADER ===================== -->
+
+    <header class="header">
+
+        <div class="container navbar">
+
+            <div class="logo">
+                <h2>Care<span>Plus</span></h2>
+            </div>
+
+          <nav>
+
+    <ul class="nav-links">
+
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#doctors">Doctors</a></li>
+        <li><a href="#contact">Contact</a></li>
+
+    </ul>
+
+</nav>
+
+<div class="menu-toggle">
+
+    ☰
+
+</div>
+
+<a href="#appointment" class="btn nav-btn">
+    Book Appointment
+</a>  
+
+        </div>
+
+    </header>
+
+    <!-- ===================== HERO SECTION ===================== -->
+
+    <!-- ================= HERO SECTION ================= -->
+
+<section class="hero">
+
+    <div class="container hero-container">
+
+        <!-- Left Side -->
+
+        <div class="hero-text">
+
+            <span class="hero-badge">🏥 Trusted Healthcare Since 2010</span>
+
+            <h1>Your Health,<br>Our Priority</h1>
+
+            <p>
+                Experience exceptional healthcare with expert doctors,
+                cutting-edge technology, and compassionate care tailored to
+                every patient.
+            </p>
+
+            <div class="hero-features">
+                <div>✔ Experienced Doctors</div>
+                <div>✔ 24/7 Emergency Services</div>
+                <div>✔ Advanced Medical Equipment</div>
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="#appointment" class="btn">
+                    Book Appointment
+                </a>
+
+                <a href="#services" class="btn-outline">
+                    Explore Services
+                </a>
+
+            </div>
+
+            <!-- Statistics -->
+
+            <div class="hero-stats">
+
+                <div class="stat">
+                    <h2>15+</h2>
+                    <p>Years Experience</p>
+                </div>
+
+                <div class="stat">
+                    <h2>40+</h2>
+                    <p>Doctors</p>
+                </div>
+
+                <div class="stat">
+                    <h2>25K+</h2>
+                    <p>Happy Patients</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="hero-image">
+
+            <img src="assets/images/doctor.png" alt="Doctor">
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="about" id="about">
+
+    <div class="container about-container">
+
+        <!-- Left Side -->
+
+        <div class="about-image">
+
+            <img src="assets/images/hospital.jpg" alt="Hospital">
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="about-content">
+
+            <h4>ABOUT OUR CLINIC</h4>
+
+            <h2>Providing Quality Healthcare for Every Patient</h2>
+
+            <p>
+                CarePlus Clinic is committed to delivering exceptional healthcare
+                with experienced doctors, modern medical technology, and a
+                patient-first approach. Our goal is to ensure every patient
+                receives personalized and compassionate treatment.
+            </p>
+
+            <div class="about-features">
+
+                <div class="feature-card">
+                    ✔ Experienced Medical Professionals
+                </div>
+
+                <div class="feature-card">
+                    ✔ Latest Diagnostic Equipment
+                </div>
+
+                <div class="feature-card">
+                    ✔ Affordable & Personalized Care
+                </div>
+
+                <div class="feature-card">
+                    ✔ 24/7 Emergency Support
+                </div>
+
+            </div>
+
+            <a href="#" class="btn">Learn More</a>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= SERVICES SECTION ================= -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h4>OUR SERVICES</h4>
+            <h2>Comprehensive Healthcare Services</h2>
+            <p>
+                We provide a wide range of medical services with experienced
+                specialists and modern facilities.
+            </p>
+        </div>
+
+        <div class="services-container">
+
+            <div class="service-card">
+                 <div class="service-icon">
+    <i class="fa-solid fa-stethoscope"></i>
+</div>
+                <h3>General Medicine</h3>
+                <p>Comprehensive diagnosis and treatment for all age groups.</p>
+                <a href="#" class="read-more"
+                   data-title="General Medicine"
+                   data-description="Our General Medicine department provides diagnosis, preventive healthcare, treatment for fever, diabetes, hypertension, infections, and routine health checkups by experienced physicians.">
+                   Read More →
+                </a>
+                 
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+    <i class="fa-solid fa-tooth"></i>
+</div>
+                <h3>Dental Care</h3>
+                <p>Advanced dental treatments with modern equipment.</p>
+                <a href="#" class="read-more"
+   data-title="Dental Care"
+   data-description="Our Dental Care department offers teeth cleaning, fillings, root canal treatment, braces consultation, cosmetic dentistry, and preventive oral healthcare.">
+   Read More →
+</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+    <i class="fa-solid fa-heart-pulse"></i>
+</div>
+                <h3>Cardiology</h3>
+                <p>Heart care with experienced cardiologists and technology.</p>
+                <a href="#" class="read-more"
+   data-title="Cardiology"
+   data-description="Our Cardiology specialists diagnose and treat heart diseases using ECG, Echo, stress testing, and advanced cardiac care.">
+   Read More →
+</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+    <i class="fa-solid fa-brain"></i>
+</div>
+                <h3>Neurology</h3>
+                <p>Specialized care for brain and nervous system disorders.</p>
+                <a href="#" class="read-more"
+   data-title="Neurology"
+   data-description="We provide expert treatment for stroke, epilepsy, migraines, Parkinson's disease, nerve disorders, and other neurological conditions.">
+   Read More →
+</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+    <i class="fa-solid fa-bone"></i>
+</div>
+                <h3>Orthopedics</h3>
+                <p>Expert treatment for bones, joints, and sports injuries.</p>
+                <a href="#" class="read-more"
+   data-title="Orthopedics"
+   data-description="Our Orthopedic department treats fractures, joint pain, arthritis, sports injuries, and performs advanced bone and joint surgeries.">
+   Read More →
+</a>
+            </div>
+
+            <div class="service-card">
+               <div class="service-icon">
+    <i class="fa-solid fa-child-reaching"></i>
+</div> 
+                <h3>Pediatrics</h3>
+                <p>Dedicated healthcare services for infants and children.</p>
+                <a href="#" class="read-more"
+   data-title="Pediatrics"
+   data-description="Comprehensive healthcare services for infants, children, and adolescents including vaccinations, nutrition guidance, and routine checkups.">
+   Read More →
+</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= WHY CHOOSE US ================= -->
+
+<section class="why-choose">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h4>WHY CHOOSE US</h4>
+            <h2>Committed to Excellence in Healthcare</h2>
+            <p>
+                We combine experienced professionals, advanced technology, and
+                compassionate care to provide the best healthcare experience.
+            </p>
+        </div>
+
+        <div class="why-container">
+
+            <div class="why-card">
+                <h2>15+</h2>
+                <h3>Years Experience</h3>
+                <p>Providing trusted healthcare services for over a decade.</p>
+            </div>
+
+            <div class="why-card">
+                <h2>40+</h2>
+                <h3>Expert Doctors</h3>
+                <p>Highly qualified specialists across multiple departments.</p>
+            </div>
+
+            <div class="why-card">
+                <h2>25K+</h2>
+                <h3>Happy Patients</h3>
+                <p>Thousands of successful treatments and satisfied patients.</p>
+            </div>
+
+            <div class="why-card">
+                <h2>24/7</h2>
+                <h3>Emergency Support</h3>
+                <p>Round-the-clock emergency care whenever you need us.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= DOCTORS SECTION ================= -->
+
+<section class="doctors" id="doctors">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h4>OUR DOCTORS</h4>
+            <h2>Meet Our Medical Experts</h2>
+            <p>
+                Our experienced doctors are dedicated to providing exceptional
+                healthcare with compassion and expertise.
+            </p>
+        </div>
+
+        <div class="doctor-container">
+
+            <!-- Doctor 1 -->
+
+            <div class="doctor-card">
+
+                <img src="assets/images/doctor1.jpg" alt="Doctor">
+
+                <div class="doctor-info">
+
+                    <h3>Dr. Harry Potter</h3>
+
+                    <h4>Cardiologist</h4>
+
+                    <p>12+ Years Experience</p>
+
+                    <a href="#appointment" class="btn-small">
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Doctor 2 -->
+
+            <div class="doctor-card">
+
+                <img src="assets/images/doctor2.jpg" alt="Doctor">
+
+                <div class="doctor-info">
+
+                    <h3>Dr. Ron Weasley</h3>
+
+                    <h4>Neurologist</h4>
+
+                    <p>10+ Years Experience</p>
+
+                    <a href="#appointment" class="btn-small">
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Doctor 3 -->
+
+            <div class="doctor-card">
+
+                <img src="assets/images/doctor3.jpg" alt="Doctor">
+
+                <div class="doctor-info">
+
+                    <h3>Dr.Hermione Granger</h3>
+
+                    <h4>Pediatrician</h4>
+
+                    <p>8+ Years Experience</p>
+
+                    <a href="#appointment" class="btn-small">
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= TESTIMONIALS ================= -->
+
+<section class="testimonials" id="testimonials">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h4>TESTIMONIALS</h4>
+
+            <h2>What Our Patients Say</h2>
+
+            <p>
+                Hear from patients who trusted us with their healthcare journey.
+            </p>
+
+        </div>
+
+        <div class="testimonial-container">
+
+            <div class="testimonial-card">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    The doctors were extremely caring and professional.
+                    The treatment was excellent and I recovered quickly.
+                </p>
+
+                <h3>Peter Parker</h3>
+
+            </div>
+
+            <div class="testimonial-card">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    Modern facilities, friendly staff, and outstanding
+                    medical service. Highly recommended!
+                </p>
+
+                <h3>Gwen Stacy</h3>
+
+            </div>
+
+            <div class="testimonial-card">
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    My experience was wonderful. The appointment process
+                    was smooth and the doctors explained everything clearly.
+                </p>
+
+                <h3>Mary Jane</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= APPOINTMENT ================= -->
+
+<section class="appointment" id="appointment">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h4>BOOK APPOINTMENT</h4>
+
+            <h2>Schedule Your Visit</h2>
+
+            <p>
+                Fill out the form below and our team will contact you shortly.
+            </p>
+
+        </div>
+
+        <form id="appointmentForm">
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Full Name"
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                >
+
+            </div>
+
+            <div class="form-row">
+
+                <input
+                    type="text"
+                    id="phone"
+                    placeholder="Phone Number"
+                >
+
+                <select id="department">
+
+                    <option value="">Select Department</option>
+
+                    <option>General Medicine</option>
+
+                    <option>Dental Care</option>
+
+                    <option>Cardiology</option>
+
+                    <option>Neurology</option>
+
+                    <option>Orthopedics</option>
+
+                    <option>Pediatrics</option>
+
+                </select>
+
+            </div>
+
+            <textarea
+                id="message"
+                rows="6"
+                placeholder="Your Message"
+            ></textarea>
+
+            <button type="submit" class="btn">
+                Book Appointment
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+<!-- ================= CONTACT ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h4>CONTACT US</h4>
+
+            <h2>Get In Touch</h2>
+
+            <p>
+                We'd love to hear from you. Reach out using the information below.
+            </p>
+
+        </div>
+
+        <div class="contact-container">
+
+            <div class="contact-card">
+
+                <h3>📍 Address</h3>
+
+                <p>123 Healthcare Street<br>Bhubaneswar, Odisha</p>
+
+            </div>
+
+            <div class="contact-card">
+
+                <h3>📞 Phone</h3>
+
+                <p>+91 9876543210</p>
+
+            </div>
+
+            <div class="contact-card">
+
+                <h3>📧 Email</h3>
+
+                <p>careplus@gmail.com</p>
+
+            </div>
+
+            <div class="contact-card">
+
+                <h3>🕒 Opening Hours</h3>
+
+                <p>Mon - Sat<br>9:00 AM - 8:00 PM</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= MAP ================= -->
+
+<section class="map">
+
+    <iframe
+        src="https://www.google.com/maps?q=Bhubaneswar&output=embed"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
+</section>
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+
+            <h2>Care<span>Plus</span></h2>
+
+            <p>
+                Providing trusted healthcare with compassion,
+                expertise, and advanced medical technology.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="#">Home</a></li>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#services">Services</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <div>
+
+            <h3>Follow Us</h3>
+
+            <p>Facebook</p>
+            <p>Instagram</p>
+            <p>LinkedIn</p>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 CarePlus Clinic. All Rights Reserved.
+
+    </div>
+
+</footer>
+<!-- ================= SERVICE MODAL ================= -->
+
+<div class="modal" id="serviceModal">
+
+    <div class="modal-content">
+
+        <span class="close">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+        <button class="btn" id="closeBtn">
+            Close
+        </button>
+
+    </div>
+
+</div>
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1000,
+    once:true
+});
+</script>
+<button id="topBtn">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+</body>
+
+</html>
