@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarePlus - Doctor Appointment Booking System</title>
+
+
+    <!-- FontAwesome for medical icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="router('home')">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-medical-600 to-brand-600 flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-stethoscope text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold bg-gradient-to-r from-medical-700 to-brand-600 bg-clip-text text-transparent">CarePlus</span>
+                        <span class="block text-[10px] text-gray-500 font-semibold tracking-wider uppercase">Health Booking System</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <button onclick="router('home')" id="nav-home" class="nav-link font-medium text-medical-700 transition hover:text-medical-600 py-2 border-b-2 border-medical-600">Home</button>
+                    <button onclick="router('doctors')" id="nav-doctors" class="nav-link font-medium text-gray-600 transition hover:text-medical-600 py-2 border-b-2 border-transparent">Find Doctors</button>
+                    <button onclick="router('appointments')" id="nav-appointments" class="nav-link font-medium text-gray-600 transition hover:text-medical-600 py-2 border-b-2 border-transparent relative">
+                        My Appointments
+                        <span id="appointment-badge" class="absolute -top-1 -right-4 bg-medical-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full hidden">0</span>
+                    </button>
+                </nav>
+
+                <!-- Emergency Contact / CTA -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <div class="flex items-center space-x-2 bg-medical-50 text-medical-800 px-3 py-1.5 rounded-full text-xs font-semibold">
+                        <i class="fa-solid fa-phone-volume text-medical-600"></i>
+                        <span>Emergency: 108</span>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 pt-2 pb-4 space-y-2">
+            <button onclick="router('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-50">Home</button>
+            <button onclick="router('doctors'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-50">Find Doctors</button>
+            <button onclick="router('appointments'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md font-medium text-gray-700 hover:bg-gray-50">My Appointments</button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- VIEW 1: HOME PAGE -->
+        <div id="view-home" class="view-section">
+            <!-- Hero Section -->
+            <div class="relative bg-gradient-to-br from-medical-900 via-medical-800 to-brand-900 text-white overflow-hidden">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center space-x-2 bg-medical-700/60 border border-medical-500/40 text-medical-200 px-3.5 py-1.5 rounded-full text-xs font-semibold backdrop-blur-sm">
+                                <i class="fa-solid fa-shield-heart text-medical-400"></i>
+                                <span>Verified Specialist Healthcare Network</span>
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                                Book Trusted Doctors <span class="text-medical-400">Instantly.</span>
+                            </h1>
+                            <p class="text-lg text-gray-300 max-w-xl">
+                                Connect with top-rated medical specialists across multiple departments. Schedule in-person or virtual consultations effortlessly with real-time slot selection.
+                            </p>
+                            <!-- Quick Search Bar in Hero -->
+                            <div class="bg-white p-3 rounded-2xl shadow-xl flex flex-col sm:flex-row gap-3 max-w-xl text-gray-800">
+                                <div class="flex-grow flex items-center space-x-3 px-3 py-2 bg-gray-50 rounded-xl">
+                                    <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                                    <input type="text" id="hero-search-input" placeholder="Search doctor name or specialty..." class="w-full bg-transparent focus:outline-none text-sm text-gray-700">
+                                </div>
+                                <button onclick="handleHeroSearch()" class="bg-medical-600 hover:bg-medical-700 text-white px-6 py-3 rounded-xl font-semibold text-sm transition shadow-md flex items-center justify-center space-x-2">
+                                    <span>Find Doctor</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <!-- Stats badges -->
+                            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-medical-700/60 max-w-lg">
+                                <div>
+                                    <div class="text-2xl font-bold text-white">50+</div>
+                                    <div class="text-xs text-gray-300">Expert Doctors</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-white">10+</div>
+                                    <div class="text-xs text-gray-300">Departments</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-white">100%</div>
+                                    <div class="text-xs text-gray-300">Verified Reviews</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative hidden lg:block">
+                            <div class="relative mx-auto max-w-md bg-gradient-to-tr from-medical-500/20 to-brand-500/20 p-4 rounded-3xl border border-white/10 backdrop-blur-md shadow-2xl">
+                                <img src="https://placehold.co/600x600/065f46/ffffff?text=Doctor+Consultation" alt="Doctor Consultation" class="rounded-2xl w-full h-80 object-cover shadow-lg">
+                                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl text-gray-800 flex items-center space-x-3">
+                                    <div class="w-12 h-12 bg-medical-100 rounded-full flex items-center justify-center text-medical-600 font-bold text-lg">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs text-gray-500">Available Today</div>
+                                        <div class="text-sm font-bold text-gray-800">Top Specialists On-Duty</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Department Quick Cards -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="flex justify-between items-end mb-8">
+                    <div>
+                        <span class="text-medical-600 font-semibold text-xs uppercase tracking-wider">Specialties</span>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Browse by Department</h2>
+                    </div>
+                    <button onclick="router('doctors')" class="text-medical-600 hover:text-medical-700 font-semibold text-sm flex items-center space-x-1">
+                        <span>View All</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+                <div id="department-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <!-- Injected dynamically -->
+                </div>
+            </section>
+
+            <!-- Featured Doctors Section -->
+            <section class="bg-gray-100/70 py-16 border-y border-gray-200/60">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between items-end mb-8">
+                        <div>
+                            <span class="text-medical-600 font-semibold text-xs uppercase tracking-wider">Top Rated</span>
+                            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Featured Specialists</h2>
+                        </div>
+                        <button onclick="router('doctors')" class="text-medical-600 hover:text-medical-700 font-semibold text-sm flex items-center space-x-1">
+                            <span>Browse All Doctors</span>
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+                    </div>
+                    <div id="featured-doctors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Injected dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Us banner -->
+            <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="bg-gradient-to-r from-medical-600 to-brand-600 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8">
+                    <div class="space-y-4 max-w-xl">
+                        <span class="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-semibold">Healthcare Excellence</span>
+                        <h2 class="text-3xl font-extrabold tracking-tight">Need Immediate Medical Advice or Consultation?</h2>
+                        <p class="text-white/80 text-sm sm:text-base">
+                            Our system connects you instantly with verified doctors. Enjoy hassle-free appointment booking, digital prescriptions, and transparent consultation fees.
+                        </p>
+                    </div>
+                    <button onclick="router('doctors')" class="bg-white text-medical-800 hover:bg-gray-100 font-bold px-8 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5">
+                        Book Appointment Now
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW 2: DOCTOR LISTINGS & SEARCH -->
+        <div id="view-doctors" class="view-section hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Find & Book Doctors</h1>
+                <p class="text-gray-500 text-sm mt-1">Search through our comprehensive database of medical specialists.</p>
+            </div>
+
+            <!-- Search & Filter Controls Bar -->
+            <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-200/80 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="flex items-center space-x-3 bg-gray-50 px-3.5 py-2.5 rounded-xl border border-gray-200">
+                    <i class="fa-solid fa-search text-gray-400"></i>
+                    <input type="text" id="doctor-search-input" oninput="filterDoctors()" placeholder="Search by name or keyword..." class="w-full bg-transparent focus:outline-none text-sm">
+                </div>
+                <div>
+                    <select id="department-filter" onchange="filterDoctors()" class="w-full bg-gray-50 border border-gray-200 px-3.5 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-medical-500">
+                        <option value="">All Departments</option>
+                    </select>
+                </div>
+                <div>
+                    <select id="sort-filter" onchange="filterDoctors()" class="w-full bg-gray-50 border border-gray-200 px-3.5 py-2.5 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-medical-500">
+                        <option value="rating">Sort by: Highest Rating</option>
+                        <option value="fee-low">Fee: Low to High</option>
+                        <option value="fee-high">Fee: High to Low</option>
+                        <option value="experience">Experience: Most Experienced</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Doctors Grid -->
+            <div id="doctors-listing-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Injected dynamically -->
+            </div>
+            <!-- Empty state -->
+            <div id="no-doctors-found" class="hidden text-center py-16">
+                <div class="w-16 h-16 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                    <i class="fa-solid fa-user-slash"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800">No Doctors Found</h3>
+                <p class="text-sm text-gray-500 mt-1">Try adjusting your search criteria or department filter.</p>
+            </div>
+        </div>
+
+        <!-- VIEW 3: DOCTOR PROFILE & BOOKING WORKFLOW -->
+        <div id="view-profile" class="view-section hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <button onclick="router('doctors')" class="inline-flex items-center space-x-2 text-sm font-semibold text-gray-600 hover:text-medical-600 mb-6 transition">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Back to Doctors</span>
+            </button>
+
+            <div id="doctor-profile-container" class="space-y-8">
+                <!-- Injected dynamically -->
+            </div>
+        </div>
+
+        <!-- VIEW 4: APPOINTMENT CONFIRMATION / SUMMARY -->
+        <div id="view-confirmation" class="view-section hidden max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="bg-white rounded-3xl shadow-xl border border-gray-200/80 p-8 text-center space-y-6">
+                <div class="w-20 h-20 bg-medical-100 text-medical-600 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner animate-bounce">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <span class="bg-medical-50 text-medical-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Booking Successful</span>
+                    <h1 class="text-3xl font-extrabold text-gray-900 mt-2">Appointment Confirmed!</h1>
+                    <p class="text-gray-500 text-sm mt-1">We have successfully recorded your booking. A confirmation details summary is below.</p>
+                </div>
+
+                <div id="confirmation-details-box" class="bg-gray-50 rounded-2xl p-6 text-left space-y-4 border border-gray-200/80">
+                    <!-- Injected dynamically -->
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <button onclick="router('appointments')" class="flex-grow bg-medical-600 hover:bg-medical-700 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-md">
+                        View My Appointments
+                    </button>
+                    <button onclick="router('home')" class="flex-grow bg-gray-100 hover:bg-gray-200 text-gray-700 font-bold py-3.5 px-6 rounded-xl transition">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW 5: APPOINTMENT HISTORY (FRONTEND) -->
+        <div id="view-appointments" class="view-section hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">My Appointments</h1>
+                    <p class="text-gray-500 text-sm mt-1">Review your scheduled medical appointments and patient details.</p>
+                </div>
+                <button onclick="router('doctors')" class="bg-medical-600 hover:bg-medical-700 text-white text-sm font-semibold px-4 py-2.5 rounded-xl shadow transition flex items-center space-x-2">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Book New</span>
+                </button>
+            </div>
+
+            <div id="appointments-list-container" class="space-y-4">
+                <!-- Injected dynamically -->
+            </div>
+
+            <div id="no-appointments-state" class="hidden text-center py-20 bg-white rounded-3xl border border-gray-200">
+                <div class="w-16 h-16 bg-medical-50 text-medical-500 rounded-full flex items-center justify-center mx-auto text-2xl mb-4">
+                    <i class="fa-regular fa-calendar-xmark"></i>
+                </div>
+                <h3 class="text-lg font-bold text-gray-800">No Appointments Booked Yet</h3>
+                <p class="text-sm text-gray-500 mt-1 max-w-sm mx-auto">You haven't scheduled any doctor appointments yet. Browse our specialists to book your first session.</p>
+                <button onclick="router('doctors')" class="mt-6 bg-medical-600 hover:bg-medical-700 text-white text-sm font-bold px-6 py-3 rounded-xl transition shadow">
+                    Find Doctors Now
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm hidden">
+        <div class="bg-white rounded-3xl p-6 max-w-sm w-full mx-4 shadow-2xl text-center space-y-4 animate-scaleUp">
+            <div id="modal-icon" class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl">
+                <!-- Icon injected -->
+            </div>
+            <h3 id="modal-title" class="text-xl font-bold text-gray-900">Title</h3>
+            <p id="modal-message" class="text-sm text-gray-600">Message</p>
+            <button onclick="closeModal()" class="w-full bg-medical-600 hover:bg-medical-700 text-white font-bold py-3 rounded-xl transition shadow">
+                OK
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-200/80 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-lg bg-medical-600 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-stethoscope"></i>
+                        </div>
+                        <span class="text-lg font-bold text-gray-900">CarePlus Booking System</span>
+                    </div>
+                    <p class="text-sm text-gray-500 max-w-sm">
+                        Providing seamless digital access to healthcare professionals, department search, and instant verified appointment scheduling.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><button onclick="router('home')" class="hover:text-medical-600 transition">Home</button></li>
+                        <li><button onclick="router('doctors')" class="hover:text-medical-600 transition">Find Doctors</button></li>
+                        <li><button onclick="router('appointments')" class="hover:text-medical-600 transition">My Appointments</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Departments</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><span class="hover:text-medical-600 cursor-pointer" onclick="filterByDeptQuick('Cardiology')">Cardiology</span></li>
+                        <li><span class="hover:text-medical-600 cursor-pointer" onclick="filterByDeptQuick('Neurology')">Neurology</span></li>
+                        <li><span class="hover:text-medical-600 cursor-pointer" onclick="filterByDeptQuick('Pediatrics')">Pediatrics</span></li>
+                        <li><span class="hover:text-medical-600 cursor-pointer" onclick="filterByDeptQuick('Dermatology')">Dermatology</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400">
+                <p>&copy; 2026 CarePlus Appointment System. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 sm:mt-0">
+                    <span class="hover:text-gray-600 cursor-pointer">Privacy Policy</span>
+                    <span class="hover:text-gray-600 cursor-pointer">Terms of Service</span>
+                    <span class="hover:text-gray-600 cursor-pointer">Support</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
